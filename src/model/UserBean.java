@@ -24,9 +24,10 @@ public class UserBean {
 	public UserBean() {
 	}
 	
-	public UserBean(String newUserEmail, String newUserPwd) {
+	public UserBean(String newUserEmail, String newUserPwd, int newAdmin) {
 		this.userEmail = newUserEmail;
 		this.userPwd = newUserPwd;
+		this.admin = newAdmin;
 	}
 
 	// Get/Set Methods
