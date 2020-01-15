@@ -1,7 +1,7 @@
 # Welcome to EEIT111FinalProject
 
 This is Taiwan 資策會 Digital Talent Cultivation Center/Digital Education Institute, EEIT Class 111 Java development class Team 1 Final Project. It's an online shopping cart website.
-...
+...more inc.
 
 ## Goals
 This project should demonstrate application of back-end development technical skills and principles;
@@ -14,12 +14,15 @@ This project should demonstrate application of back-end development technical sk
 7) Notepad++, Atom
 8) Eclipse
 9) Apache Tomcat 9
-...
+...more inc.
 
 ## Members
 Kuei - omgitskuei
-...
+...more inc.
 
 ## Links
-Visit our Github page is [here](https://github.com/omgitskuei/EEIT111FinalProject).
-...
+Our [Github page](https://github.com/omgitskuei/EEIT111FinalProject).
+...more inc.
+
+### Support or Contact
+Kuei - omgitskuei
