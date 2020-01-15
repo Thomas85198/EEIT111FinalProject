@@ -34,10 +34,10 @@ public class UserBean {
 	@Id
 	@Column(name="userID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getId() {
+	public int getUserID() {
 		return userID;
 	}
-	public void setId(int newUserID) {
+	public void setUserID(int newUserID) {
 		this.userID = newUserID;
 	}
 
