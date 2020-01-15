@@ -17,8 +17,7 @@ This project should demonstrate application of back-end development technical sk
 ...more inc.
 
 ## Members/Contributors
-omgitskuei
-Thomas85198
+omgitskuei | Thomas85198
 ...more inc.
 
 ## Links
@@ -26,5 +25,4 @@ Our [Github page](https://github.com/omgitskuei/EEIT111FinalProject).
 ...more inc.
 
 ## Support or Contact
-Kuei - omgitskuei
-Thomas Lu - Thomas85198
+Kuei - omgitskuei | Thomas Lu - Thomas85198
