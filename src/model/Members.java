@@ -4,7 +4,9 @@ public class Members {
 	private String memberName;
 	private String gender;
 	private int age;
+	private int height;
 	
+	// Constructors
 	public Members() {		
 	}
 
@@ -14,6 +16,16 @@ public class Members {
 		this.age = age;
 	}
 
+	// Get/Set
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+	
+	
 	public String getMemberName() {
 		return memberName;
 	}
