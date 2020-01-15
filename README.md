@@ -16,13 +16,15 @@ This project should demonstrate application of back-end development technical sk
 9) Apache Tomcat 9
 ...more inc.
 
-## Members
-Kuei - omgitskuei
+## Members/Contributors
+omgitskuei
+Thomas85198
 ...more inc.
 
 ## Links
 Our [Github page](https://github.com/omgitskuei/EEIT111FinalProject).
 ...more inc.
 
-### Support or Contact
+## Support or Contact
 Kuei - omgitskuei
+Thomas Lu - Thomas85198
