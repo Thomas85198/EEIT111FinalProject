@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 public class Account {
 
 	// Variables, matches table columns
+	private String accountName;
 	private int id;
 	private String username;
 	private String userpwd;
@@ -43,6 +44,14 @@ public class Account {
 	public String getUsername() {
 		return username;
 	}
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
