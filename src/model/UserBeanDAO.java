@@ -1,7 +1,10 @@
 package model;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -44,22 +47,43 @@ public class UserBeanDAO implements UserBeanDAOInterface {
 		
 		return null;
 	}
+	
+	// Override tag is only used if supertype UserBeanDAOInterface also has this method
+	// @Override
+	public List<UserBean> selectAll() {
+		// Get current Session
+		Session session = sessionFactory.getCurrentSession();
+		// Get all rows from UsersTable
+		Query query = session.createQuery("From UserBean"); // This 'From' references UserBean.java
+		// Store query results into List results
+		List<UserBean> results = (List<UserBean>) query.list();
+		System.out.println("SelectAll: "+results.get(0).getClass());
+		// Print List results into console (for debugging)
+		for (int index=0;index<results.size();index++) {
+			System.out.println(results.get(index).getUserID());
+			System.out.println(results.get(index).getUserEmail());
+			System.out.println(results.get(index).getUserPwd());
+			System.out.println(results.get(index).getAdmin());
+		}
+		// Return List results
+		return results;
+	}
 
 	@Override
 	public boolean updateEmail(UserBean updateThisUser, String newEmail) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public boolean updatePwd(UserBean updateThisUser, String newPwd) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public boolean deleteUser(UserBean deleteThisUser) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
