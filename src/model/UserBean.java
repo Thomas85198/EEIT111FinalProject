@@ -45,7 +45,7 @@ public class UserBean {
 	public String getUserEmail() {
 		return userEmail;
 	}
-	public void setUsername(String newUserEmail) {
+	public void setUserEmail(String newUserEmail) {
 		this.userEmail = newUserEmail;
 	}
 
