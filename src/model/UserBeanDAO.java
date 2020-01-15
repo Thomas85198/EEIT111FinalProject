@@ -30,8 +30,8 @@ public class UserBeanDAO implements UserBeanDAOInterface {
 			// Insert the passed UserBean
 			session.save(insertThisUser);
 			System.out.println("UserBean Inserted:");
-			System.out.println("userEmail: "+insertThisUser.getUserEmail());
-			System.out.println("userPwd: "+insertThisUser.getUserPwd());
+			System.out.println("userEmail: " + insertThisUser.getUserEmail());
+			System.out.println("userPwd: " + insertThisUser.getUserPwd());
 			System.out.println("FINISH: UserBeanDAO.insertUser(UserBean insertThisUser)");
 			// Return True, for SUCCESSFUL INSERT
 			return true;
@@ -44,11 +44,23 @@ public class UserBeanDAO implements UserBeanDAOInterface {
 
 	@Override
 	public UserBean selectUser(UserBean selectThisUser) {
-		
+		// Get current Session
+		Session session = sessionFactory.getCurrentSession();
+		// Check if selecThisUser is null
+		if (selectThisUser != null) {
+			// Try to find selectThisUser
+			UserBean existingUser = session.get(UserBean.class, selectThisUser.getUserID());
+			if (existingUser != null) {
+				// If found, return the result UserBean existingUser
+				return existingUser;
+			}
+		}
+		// existingUser returned null meaning selectThisUser was not found
 		return null;
 	}
-	
-	// Override tag is only used if supertype UserBeanDAOInterface also has this method
+
+	// Override tag is only used if supertype UserBeanDAOInterface ...
+	// ... also has this method.
 	// @Override
 	public List<UserBean> selectAll() {
 		// Get current Session
@@ -57,9 +69,9 @@ public class UserBeanDAO implements UserBeanDAOInterface {
 		Query query = session.createQuery("From UserBean"); // This 'From' references UserBean.java
 		// Store query results into List results
 		List<UserBean> results = (List<UserBean>) query.list();
-		System.out.println("SelectAll: "+results.get(0).getClass());
+		System.out.println("SelectAll: " + results.get(0).getClass());
 		// Print List results into console (for debugging)
-		for (int index=0;index<results.size();index++) {
+		for (int index = 0; index < results.size(); index++) {
 			System.out.println(results.get(index).getUserID());
 			System.out.println(results.get(index).getUserEmail());
 			System.out.println(results.get(index).getUserPwd());
@@ -71,19 +83,61 @@ public class UserBeanDAO implements UserBeanDAOInterface {
 
 	@Override
 	public boolean updateEmail(UserBean updateThisUser, String newEmail) {
-		
+		// Get current Session
+		Session session = sessionFactory.getCurrentSession();
+		// Check if updateThisUser is null
+		if (updateThisUser != null) {
+			// Try to find updateThisUser
+			UserBean existingUser = session.get(UserBean.class, updateThisUser.getUserID());
+			if (existingUser != null) {
+				// If found, update Email and return True
+				String oldEmail = existingUser.getUserEmail();
+				existingUser.setUserEmail(newEmail);
+				return true;
+			}
+		}
+		// Return False because 1) updateThisUser was null OR 2) existingUser was null
 		return false;
 	}
 
 	@Override
 	public boolean updatePwd(UserBean updateThisUser, String newPwd) {
-		
+		// Get current Session
+		Session session = sessionFactory.getCurrentSession();
+		// Check if updateThisUser is null
+		if (updateThisUser != null) {
+			// Try to find updateThisUser
+			UserBean existingUser = session.get(UserBean.class, updateThisUser.getUserID());
+			if (existingUser != null) {
+				// If found, update Pwd and return True
+				String oldPwd = existingUser.getUserPwd();
+				existingUser.setUserPwd(newPwd);
+				return true;
+			}
+		}
+		// Return False because 1) updateThisUser was null OR 2) existingUser was null
 		return false;
 	}
 
 	@Override
 	public boolean deleteUser(UserBean deleteThisUser) {
-		
+		// Get current Session
+		Session session = sessionFactory.getCurrentSession();
+		// Check if deleteThisUser is null
+		if (deleteThisUser != null) {
+			// Try to find deleteThisUser
+			UserBean existingUser = session.get(UserBean.class, deleteThisUser.getUserID());
+			if (existingUser != null) {
+				// If found, delete, return True
+				int deletedUserID = existingUser.getUserID();
+				String deletedUserEmail = existingUser.getUserEmail();
+				String deletedUserPwd = existingUser.getUserPwd();
+				int deletedUserAdmin = existingUser.getAdmin();
+				session.delete(existingUser);
+				return true;
+			}
+		}
+		// Return False because 1) updateThisUser was null OR 2) existingUser was null
 		return false;
 	}
 
